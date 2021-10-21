@@ -1,0 +1,343 @@
+@import "_breakpoints.scss";
+
+/* Variables 
+*******************************************************/
+$ThemePrimaryColor: rgba(0, 0, 0, 1);
+$HeadingsFont: "Playfair Display", serif;
+$BodyFont: stolzl, sans-serif;
+$MobilePadding: 16px;
+$DesktopPadding: 36px;
+
+html {
+  /* .625 of 16px default makes 10px, therefore 1.6rem (also the defualt) = 16px */
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  font-family: $BodyFont;
+  font-weight: 300;
+  font-style: normal;
+  color: $ThemePrimaryColor;
+  line-height: 3rem;
+  background-color: aliceblue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-family: $HeadingsFont;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+@include tablet-portrait {
+  h1 {
+    font-size: 6.5rem;
+  }
+  h2 {
+    font-size: 4.8rem;
+  }
+}
+
+/* Links 
+*******************************************************/
+a:link {
+  color: $ThemePrimaryColor;
+  &:hover {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+a:visited,
+a:active {
+  color: $ThemePrimaryColor;
+}
+.MainHeader a {
+  text-decoration: none;
+  font-weight: 400;
+}
+.MainHeader a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+/* Header 
+*******************************************************/
+.MainHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: grid;
+  gap: 10px;
+  grid-template: "Nav Logo Tools";
+  grid-template-columns: repeat(3, 1fr);
+  padding: 18px;
+  background-color: rgba(255, 255, 255, 1);
+
+  &__Logo {
+    grid-area: Logo;
+    font-size: 2.4rem;
+    font-weight: 600;
+    justify-self: center;
+    align-self: center;
+  }
+
+  &__Nav {
+    grid-area: Nav;
+    justify-self: start;
+    align-self: center;
+
+    .Menu {
+      display: none;
+      padding: 0;
+      list-style: none;
+
+      .MenuItem {
+        display: inline-block;
+        padding: 0 32px;
+      }
+    }
+
+    .MenuLink {
+      width: 2.4rem;
+      height: 1.4rem;
+      position: relative;
+
+      span {
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: block;
+        height: 0.2rem;
+        background-color: rgba(0, 0, 0, 1);
+
+        &:first-child {
+          top: 0;
+        }
+        &:last-child {
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__Tools {
+    grid-area: Tools;
+    justify-self: end;
+    align-self: center;
+
+    .ToolIcon {
+      padding: 0.6rem;
+    }
+  }
+
+  @include tablet-portrait {
+    grid-template: "Logo Nav Tools";
+    background-color: rgba(255, 255, 255, 0);
+
+    &__Logo {
+      justify-self: start;
+    }
+
+    &__Nav {
+      justify-self: center;
+
+      .Menu {
+        display: block;
+      }
+
+      .MenuLink {
+        display: none;
+      }
+    }
+  }
+}
+
+/* Layout elements
+*******************************************************/
+.Wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+
+  &__Heading {
+    text-align: center;
+    max-width: 600px;
+
+    span {
+      display: block;
+      letter-spacing: 0.2rem;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+  }
+}
+
+.Button {
+  display: inline-block;
+  color: $ThemePrimaryColor;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid $ThemePrimaryColor;
+
+  @include tablet-portrait {
+    font-size: 1.6rem;
+  }
+}
+.ButtonWhite {
+  background-color: white;
+}
+
+section {
+  margin: 0 auto;
+  padding: $MobilePadding;
+
+  @include tablet-portrait {
+    padding: $DesktopPadding;
+  }
+}
+
+/* Hero
+*******************************************************/
+.Hero {
+  position: relative;
+  margin-bottom: 20px;
+
+  &::after {
+    content: "";
+    background-image: url("/images/hero-image@2x.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 60%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &__Wrapper {
+    text-decoration: none;
+    height: 32vh;
+    display: grid;
+    align-content: end;
+
+    h1 {
+      margin: 26px;
+    }
+  }
+
+  @include tablet-portrait {
+    &__wrapper {
+      height: 80vh;
+      align-content: center;
+    }
+  }
+}
+
+/* Promo
+*******************************************************/
+.StandardPromo {
+  display: grid;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 450px;
+    gap: 40px;
+
+    .PromoCard {
+      display: grid;
+      align-content: center;
+
+      &__Heading,
+      &__Body {
+        max-width: 300px;
+        text-align: center;
+      }
+
+      &__Heading {
+        margin: 0;
+      }
+
+      &__Body {
+        line-height: 3rem;
+      }
+
+      &__Women,
+      &__Men {
+        background-size: cover;
+        background-position: right;
+      }
+    }
+  }
+}
+
+/* Block */
+.PromoCard {
+  padding: $MobilePadding;
+  margin-bottom: 20px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  /* Element */
+  &__body {
+    max-width: 70%;
+  }
+
+  /* Modifiers */
+  &__Gray {
+    background-color: #f2f3f5;
+  }
+
+  &__Women {
+    background-image: url("/images/female.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position: calc(100% + 50px);
+  }
+  &__Men {
+    background-image: url("/images/male.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position: calc(100% + 30px);
+  }
+}
+
+/* Shop section
+*******************************************************/
+.ShopSection {
+  &__Heading,
+  &__Body {
+    text-align: center;
+  }
+}
+
+/* Block
+*******************************************************/
