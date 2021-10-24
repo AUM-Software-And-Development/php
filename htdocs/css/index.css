@@ -1,0 +1,19 @@
+section.postForm label {
+  height: 25.6px;
+  padding: 2px;
+  margin: 4px;
+}
+
+section.postForm input {
+  height: 25.6px;
+  padding: 2px;
+  margin: 4px;
+}
+
+section.postForm button {
+  height: 25.6px;
+  width: 81px;
+  padding: 2px;
+  margin: 4px;
+}
+/*# sourceMappingURL=index.css.map */
