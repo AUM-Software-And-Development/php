@@ -2,7 +2,7 @@
     BREAKPOINTS
 *********************/
 /* Variables 
-*******************************************************/
+****************************************************************/
 html {
   /* .625 of 16px default makes 10px, therefore 1.6rem (also the defualt) = 16px */
   font-size: 62.5%;
@@ -52,8 +52,63 @@ h2 {
   }
 }
 
+/* Layout elements
+****************************************************************/
+.Wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+}
+
+.Wrapper__Heading {
+  text-align: center;
+  max-width: 600px;
+}
+
+.Wrapper__Heading span {
+  display: block;
+  letter-spacing: 0.2rem;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.Button {
+  display: inline-block;
+  color: black;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid black;
+}
+
+@media screen and (min-width: 768px) {
+  .Button {
+    font-size: 1.6rem;
+  }
+}
+
+.ButtonWhite {
+  background-color: white;
+}
+
+section,
+footer,
+.Content-Area {
+  margin: 0 auto;
+  padding: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  section,
+  footer,
+  .Content-Area {
+    padding: 36px;
+  }
+}
+
 /* Links 
-*******************************************************/
+****************************************************************/
 a:link {
   color: black;
 }
@@ -67,6 +122,17 @@ a:active {
   color: black;
 }
 
+input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .MainHeader a {
   text-decoration: none;
   font-weight: 400;
@@ -78,7 +144,7 @@ a:active {
 }
 
 /* Header 
-*******************************************************/
+****************************************************************/
 .MainHeader {
   position: absolute;
   top: 0;
@@ -183,59 +249,8 @@ a:active {
   }
 }
 
-/* Layout elements
-*******************************************************/
-.Wrapper {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1280px;
-}
-
-.Wrapper__Heading {
-  text-align: center;
-  max-width: 600px;
-}
-
-.Wrapper__Heading span {
-  display: block;
-  letter-spacing: 0.2rem;
-  margin-bottom: 10px;
-  font-weight: 400;
-}
-
-.Button {
-  display: inline-block;
-  color: black;
-  padding: 10px 16px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.2rem;
-  border: 2px solid black;
-}
-
-@media screen and (min-width: 768px) {
-  .Button {
-    font-size: 1.6rem;
-  }
-}
-
-.ButtonWhite {
-  background-color: white;
-}
-
-section {
-  margin: 0 auto;
-  padding: 16px;
-}
-
-@media screen and (min-width: 768px) {
-  section {
-    padding: 36px;
-  }
-}
-
 /* Hero
-*******************************************************/
+****************************************************************/
 .Hero {
   position: relative;
   margin-bottom: 20px;
@@ -277,7 +292,7 @@ section {
 }
 
 /* Promo
-*******************************************************/
+****************************************************************/
 .StandardPromo {
   display: -ms-grid;
   display: grid;
@@ -350,11 +365,112 @@ section {
 }
 
 /* Shop section
-*******************************************************/
+****************************************************************/
 .ShopSection__Heading, .ShopSection__Body {
   text-align: center;
 }
 
-/* Block
-*******************************************************/
-/*# sourceMappingURL=style.css.map */
+/* Newsletter
+****************************************************************/
+.Newsletter {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+.Newsletter__Heading {
+  font-size: 3rem;
+  margin: 0;
+  font-style: italic;
+  max-width: 500px;
+  line-height: 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .Newsletter {
+    -ms-grid-columns: 2fr 1fr;
+        grid-template-columns: 2fr 1fr;
+  }
+}
+
+.Form__Email {
+  width: 100%;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+
+.Form__Submit {
+  width: 100%;
+}
+
+/* Footer
+****************************************************************/
+.Footer {
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .Footer {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.Footer-Container__Heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Footer-Container__Body {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Footer-Container__Body a {
+  display: block;
+  padding: 8px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .Footer-Container__Heading {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Footer-Container__Heading svg {
+    display: none;
+  }
+  .Footer-Container__Body {
+    display: block;
+  }
+}
+
+/* Copyright
+*/
+.Copyright {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.Copyright__Social a {
+  padding: 10px;
+}
+
+.Copyright__Body {
+  margin: 40px 0;
+}
+/*# sourceMappingURL=styles.css.map */

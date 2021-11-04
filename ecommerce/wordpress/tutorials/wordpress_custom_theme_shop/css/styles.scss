@@ -1,7 +1,7 @@
 @import "_breakpoints.scss";
 
 /* Variables 
-*******************************************************/
+****************************************************************/
 $ThemePrimaryColor: rgba(0, 0, 0, 1);
 $HeadingsFont: "Playfair Display", serif;
 $BodyFont: stolzl, sans-serif;
@@ -57,8 +57,56 @@ h2 {
   }
 }
 
+/* Layout elements
+****************************************************************/
+.Wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+
+  &__Heading {
+    text-align: center;
+    max-width: 600px;
+
+    span {
+      display: block;
+      letter-spacing: 0.2rem;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+  }
+}
+
+.Button {
+  display: inline-block;
+  color: $ThemePrimaryColor;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid $ThemePrimaryColor;
+
+  @include tablet-portrait {
+    font-size: 1.6rem;
+  }
+}
+.ButtonWhite {
+  background-color: white;
+}
+
+section,
+footer,
+.Content-Area {
+  margin: 0 auto;
+  padding: $MobilePadding;
+
+  @include tablet-portrait {
+    padding: $DesktopPadding;
+  }
+}
+
 /* Links 
-*******************************************************/
+****************************************************************/
 a:link {
   color: $ThemePrimaryColor;
   &:hover {
@@ -68,6 +116,16 @@ a:link {
 a:visited,
 a:active {
   color: $ThemePrimaryColor;
+}
+input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 16px;
+  box-sizing: border-box;
 }
 .MainHeader a {
   text-decoration: none;
@@ -79,7 +137,7 @@ a:active {
 }
 
 /* Header 
-*******************************************************/
+****************************************************************/
 .MainHeader {
   position: absolute;
   top: 0;
@@ -172,54 +230,8 @@ a:active {
   }
 }
 
-/* Layout elements
-*******************************************************/
-.Wrapper {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1280px;
-
-  &__Heading {
-    text-align: center;
-    max-width: 600px;
-
-    span {
-      display: block;
-      letter-spacing: 0.2rem;
-      margin-bottom: 10px;
-      font-weight: 400;
-    }
-  }
-}
-
-.Button {
-  display: inline-block;
-  color: $ThemePrimaryColor;
-  padding: 10px 16px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.2rem;
-  border: 2px solid $ThemePrimaryColor;
-
-  @include tablet-portrait {
-    font-size: 1.6rem;
-  }
-}
-.ButtonWhite {
-  background-color: white;
-}
-
-section {
-  margin: 0 auto;
-  padding: $MobilePadding;
-
-  @include tablet-portrait {
-    padding: $DesktopPadding;
-  }
-}
-
 /* Hero
-*******************************************************/
+****************************************************************/
 .Hero {
   position: relative;
   margin-bottom: 20px;
@@ -258,7 +270,7 @@ section {
 }
 
 /* Promo
-*******************************************************/
+****************************************************************/
 .StandardPromo {
   display: grid;
 
@@ -331,7 +343,7 @@ section {
 }
 
 /* Shop section
-*******************************************************/
+****************************************************************/
 .ShopSection {
   &__Heading,
   &__Body {
@@ -339,5 +351,95 @@ section {
   }
 }
 
-/* Block
-*******************************************************/
+/* Newsletter
+****************************************************************/
+.Newsletter {
+  display: grid;
+  align-items: center;
+  gap: 20px;
+
+  &__Heading {
+    font-size: 3rem;
+    margin: 0;
+    font-style: italic;
+    max-width: 500px;
+    line-height: 4rem;
+  }
+
+  @include tablet-portrait {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.Form {
+  &__Email {
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $ThemePrimaryColor;
+  }
+
+  &__Submit {
+    width: 100%;
+  }
+}
+
+/* Footer
+****************************************************************/
+.Footer {
+  display: grid;
+  gap: 20px;
+
+  @include tablet-portrait {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &-Container {
+    &__Heading {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__Body {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      a {
+        display: block;
+        padding: 8px 0;
+      }
+    }
+
+    @include tablet-portrait {
+      &__Heading {
+        justify-content: start;
+        align-items: center;
+        & svg {
+          display: none;
+        }
+      }
+
+      &__Body {
+        display: block;
+      }
+    }
+  }
+}
+
+/* Copyright
+*/
+.Copyright {
+  margin-top: 20px;
+  text-align: center;
+
+  &__Social {
+    a {
+      padding: 10px;
+    }
+  }
+
+  &__Body {
+    margin: 40px 0;
+  }
+}
