@@ -1,0 +1,476 @@
+/*********************
+    BREAKPOINTS
+*********************/
+/* Variables 
+****************************************************************/
+html {
+  /* .625 of 16px default makes 10px, therefore 1.6rem (also the defualt) = 16px */
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  font-family: stolzl, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: black;
+  line-height: 3rem;
+  background-color: aliceblue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-family: "Playfair Display", serif;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 6.5rem;
+  }
+  h2 {
+    font-size: 4.8rem;
+  }
+}
+
+/* Layout elements
+****************************************************************/
+.Wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+}
+
+.Wrapper__Heading {
+  text-align: center;
+  max-width: 600px;
+}
+
+.Wrapper__Heading span {
+  display: block;
+  letter-spacing: 0.2rem;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.Button {
+  display: inline-block;
+  color: black;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid black;
+}
+
+@media screen and (min-width: 768px) {
+  .Button {
+    font-size: 1.6rem;
+  }
+}
+
+.ButtonWhite {
+  background-color: white;
+}
+
+section,
+footer,
+.Content-Area {
+  margin: 0 auto;
+  padding: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  section,
+  footer,
+  .Content-Area {
+    padding: 36px;
+  }
+}
+
+/* Links 
+****************************************************************/
+a:link {
+  color: black;
+}
+
+a:link:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+a:visited,
+a:active {
+  color: black;
+}
+
+input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.MainHeader a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.MainHeader a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+/* Header 
+****************************************************************/
+.MainHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+  grid-template: "Nav Logo Tools";
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  padding: 18px;
+  background-color: white;
+}
+
+.MainHeader__Logo {
+  grid-area: Logo;
+  font-size: 2.4rem;
+  font-weight: 600;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.MainHeader__Nav {
+  grid-area: Nav;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.MainHeader__Nav .Menu {
+  display: none;
+  padding: 0;
+  list-style: none;
+}
+
+.MainHeader__Nav .Menu .MenuItem {
+  display: inline-block;
+  padding: 0 32px;
+}
+
+.MainHeader__Nav .MenuLink {
+  width: 2.4rem;
+  height: 1.4rem;
+  position: relative;
+}
+
+.MainHeader__Nav .MenuLink span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 0.2rem;
+  background-color: black;
+}
+
+.MainHeader__Nav .MenuLink span:first-child {
+  top: 0;
+}
+
+.MainHeader__Nav .MenuLink span:last-child {
+  bottom: 0;
+}
+
+.MainHeader__Tools {
+  grid-area: Tools;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.MainHeader__Tools .ToolIcon {
+  padding: 0.6rem;
+}
+
+@media screen and (min-width: 768px) {
+  .MainHeader {
+    grid-template: "Logo Nav Tools";
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .MainHeader__Logo {
+    -ms-grid-column-align: start;
+        justify-self: start;
+  }
+  .MainHeader__Nav {
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .MainHeader__Nav .Menu {
+    display: block;
+  }
+  .MainHeader__Nav .MenuLink {
+    display: none;
+  }
+}
+
+/* Hero
+****************************************************************/
+.Hero {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.Hero::after {
+  content: "";
+  background-image: url("/images/hero-image@2x.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 60%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.Hero__Wrapper {
+  text-decoration: none;
+  height: 32vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: end;
+      align-content: end;
+}
+
+.Hero__Wrapper h1 {
+  margin: 26px;
+}
+
+@media screen and (min-width: 768px) {
+  .Hero__wrapper {
+    height: 80vh;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+}
+
+/* Promo
+****************************************************************/
+.StandardPromo {
+  display: -ms-grid;
+  display: grid;
+}
+
+@media screen and (min-width: 1824px) {
+  .StandardPromo {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 450px;
+    gap: 40px;
+  }
+  .StandardPromo .PromoCard {
+    display: -ms-grid;
+    display: grid;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .StandardPromo .PromoCard__Heading, .StandardPromo .PromoCard__Body {
+    max-width: 300px;
+    text-align: center;
+  }
+  .StandardPromo .PromoCard__Heading {
+    margin: 0;
+  }
+  .StandardPromo .PromoCard__Body {
+    line-height: 3rem;
+  }
+  .StandardPromo .PromoCard__Women, .StandardPromo .PromoCard__Men {
+    background-size: cover;
+    background-position: right;
+  }
+}
+
+/* Block */
+.PromoCard {
+  padding: 16px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  /* Element */
+  /* Modifiers */
+}
+
+.PromoCard:hover {
+  text-decoration: underline;
+}
+
+.PromoCard__body {
+  max-width: 70%;
+}
+
+.PromoCard__Gray {
+  background-color: #f2f3f5;
+}
+
+.PromoCard__Women {
+  background-image: url("/images/female.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position: calc(100% + 50px);
+}
+
+.PromoCard__Men {
+  background-image: url("/images/male.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position: calc(100% + 30px);
+}
+
+/* Shop section
+****************************************************************/
+.ShopSection__Heading, .ShopSection__Body {
+  text-align: center;
+}
+
+/* Newsletter
+****************************************************************/
+.Newsletter {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+.Newsletter__Heading {
+  font-size: 3rem;
+  margin: 0;
+  font-style: italic;
+  max-width: 500px;
+  line-height: 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .Newsletter {
+    -ms-grid-columns: 2fr 1fr;
+        grid-template-columns: 2fr 1fr;
+  }
+}
+
+.Form__Email {
+  width: 100%;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+
+.Form__Submit {
+  width: 100%;
+}
+
+/* Footer
+****************************************************************/
+.Footer {
+  display: -ms-grid;
+  display: grid;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .Footer {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.Footer-Container__Heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Footer-Container__Body {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Footer-Container__Body a {
+  display: block;
+  padding: 8px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .Footer-Container__Heading {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .Footer-Container__Heading svg {
+    display: none;
+  }
+  .Footer-Container__Body {
+    display: block;
+  }
+}
+
+/* Copyright
+*/
+.Copyright {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.Copyright__Social a {
+  padding: 10px;
+}
+
+.Copyright__Body {
+  margin: 40px 0;
+}
+/*# sourceMappingURL=styles.css.map */
